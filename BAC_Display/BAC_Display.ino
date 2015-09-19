@@ -40,10 +40,9 @@ void setup() {
   // Set up I2C and clear display
   Wire.begin();
   
-  // Set brightness and clear display except for .
+  // Set brightness and clear display
   setBrightnessI2C(BRIGHTNESS);
   clearDisplayI2C();
-  setDecimalsI2C(DEC_MASK);
 }
 
 void loop() {
@@ -80,6 +79,7 @@ void loop() {
   }
   
   // Send out to display
+  setDecimalsI2C(DEC_MASK);
   s7sSendStringI2C(temp_str);
 
   // Delay before next reading
